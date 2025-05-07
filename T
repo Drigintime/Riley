@@ -1,0 +1,20 @@
+package com.yourname.fpsgame;
+import com.badlogic.gdx.math.Vector2;
+
+public class Bullet {
+    private Vector2 position;
+    private Vector2 direction;
+    private String weaponType;
+
+    public Bullet(float x, float y, float directionX, float directionY, String weapon) {
+        position = new Vector2(x, y);
+        direction = new Vector2(directionX, directionY).nor();
+        weaponType = weapon;
+    }
+
+    public void update() {
+        position.add(direction.scl(5));
+        if (weaponType.equals("Shotgun")) position.add(direction.scl(3));
+        else if (weaponType.equals("Sniper")) position.add(direction.scl(10));
+    }
+}
