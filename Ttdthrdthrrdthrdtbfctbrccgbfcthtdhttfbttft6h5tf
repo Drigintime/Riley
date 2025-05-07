@@ -1,0 +1,22 @@
+package com.yourname.fpsgame;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Vector2;
+
+public class Joystick {
+    private Vector2 position;
+    private float radius;
+
+    public Joystick(float x, float y, float radius) {
+        this.position = new Vector2(x, y);
+        this.radius = radius;
+    }
+
+    public Vector2 getMovement() {
+        if (Gdx.input.isTouched()) {
+            float dx = Gdx.input.getX() - position.x;
+            float dy = Gdx.input.getY() - position.y;
+            return new Vector2(dx / radius, dy / radius).clamp(1);
+        }
+        return new Vector2(0, 0);
+    }
+}
