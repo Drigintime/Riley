@@ -1,0 +1,9 @@
+package com.yourname.fpsgame;
+import com.badlogic.gdx.Game;
+
+public class FPSMobileGame extends Game {
+    @Override
+    public void create() {
+        setScreen(new MainMenuScreen(this)); // Start with menu
+    }
+}
