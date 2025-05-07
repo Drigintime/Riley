@@ -1,0 +1,19 @@
+package com.yourname.fpsgame;
+import com.badlogic.gdx.math.Vector2;
+
+public class PowerUp {
+    private Vector2 position;
+    private String type;
+
+    public PowerUp(float x, float y, String type) {
+        position = new Vector2(x, y);
+        this.type = type;
+    }
+
+    public void checkCollision(Player player) {
+        if (player.getPosition().dst(position) < 20) {
+            if (type.equals("Health")) player.heal(30);
+            else if (type.equals("Speed")) player.move(new Vector2(1.5f, 1.5f));
+        }
+    }
+}
