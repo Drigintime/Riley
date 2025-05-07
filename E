@@ -1,0 +1,27 @@
+package com.yourname.fpsgame;
+import com.badlogic.gdx.math.Vector2;
+
+public class Player {
+    private Vector2 position;
+    private int health = 100;
+    private String weapon;
+
+    public Player(float x, float y, String weapon) {
+        position = new Vector2(x, y);
+        this.weapon = weapon;
+    }
+
+    public void move(Vector2 movement) {
+        position.add(movement.scl(2));
+    }
+
+    public void takeDamage(int damage) {
+        health -= damage;
+        if (health <= 0) System.out.println("Player Defeated!");
+    }
+
+    public void heal(int amount) {
+        health += amount;
+        if (health > 100) health = 100;
+    }
+}
